@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> to do list</title>
+</head>
+<body id="myID">
+    <form>
+        <input type="text" id = "tarefa"/>
+        <input type="submit" value="Adicionar tarefa" id = "botao-de-enviar" />
+    </form>
+
+    <ul id    ="lista">
+    </ul>
+
+    <script>
+        let lista = [];
+        let itens = "";
+        const listaHtml = document.getElementById("lista")
+        const botao = document.getElementById("botao-de-enviar")
+
+
+        botao.addEventListener("click", function(e){
+            e.preventDefault();
+
+            const tarefa = document.getElementById("tarefa");
+            const tarefaValue = tarefa.value;
+
+            lista.push(tarefaValue);
+
+            tarefa.value = "";
+
+            update();
+        })
+        function criarLista(){
+            for(let i =0; i<lista.length; i++){
+                itens += `<li> <div><p>${lista[i]}</p><button id = "button${i+1}" >remover <p> </button></div></li>`;     
+                }
+            
+        }
+        function update(){
+            criarLista();
+            listaHtml.innerHTML = itens;
+            itens = "";
+        }
+
+    </script>
+</body>
+</html>
