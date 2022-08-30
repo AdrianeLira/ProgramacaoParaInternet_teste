@@ -1,0 +1,40 @@
+<form action= "/new" method="form">
+    <div>
+     <button type="submit">Novo</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Adriane</td>
+            <td>
+                <div>
+                    <button type="submit" onclick="confirmacao()">Excluir</button>
+
+                </div>
+
+                <div>
+                    <form action= "/edit" method="form">
+                        <button type="submit">Editar</button>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    function confirmacao() {
+        if(confirm('Deseja realmente excluir?')){
+        document.form.submit();
+ }
+}
+</script>
